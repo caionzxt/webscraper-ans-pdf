@@ -1,38 +1,21 @@
 package com.meuprojeto;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+import java.io.File;
+
+public class AppTest {
+
+    @Test
+    public void testDownloadFolderExists() {
+        File dir = new File("downloads/");
+        assertTrue(dir.exists(), "A pasta de downloads deveria existir.");
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testZipFileCreated() {
+        File zipFile = new File("anexos.zip");
+        assertTrue(zipFile.exists(), "O arquivo ZIP deveria ser criado.");
     }
 }
